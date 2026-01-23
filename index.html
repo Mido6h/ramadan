@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>رمضان كريم 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg-1:#02101b;
+  --bg-2:#0b2a2f;
+  --gold:#e7c873;
+  --soft:#eef6ff;
+  --accent-start:#1e6f5c;
+  --accent-end:#2a9d8f;
+  --card-bg:linear-gradient(180deg, rgba(255,255,255,0.035), rgba(0,0,0,0.25));
+  --glass-border:rgba(255,255,255,0.08);
+}
+
+*{box-sizing:border-box}
+
+html,body{
+  width:100%;
+  min-height:100svh;
+  margin:0;
+}
+
+body{
+  font-family:'Cairo',sans-serif;
+  background:linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color:var(--soft);
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:clamp(14px,4vw,28px);
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== STARS ===== */
+.stars{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+.star{
+  position:absolute;
+  background:white;
+  border-radius:50%;
+  opacity:.7;
+  animation:twinkle 3s ease-in-out infinite;
+  box-shadow:0 0 6px rgba(255,255,255,.9);
+}
+@keyframes twinkle{
+  0%{opacity:.4;transform:scale(.8)}
+  50%{opacity:1;transform:scale(1.2)}
+  100%{opacity:.4;transform:scale(.8)}
+}
+
+/* ===== BANNER ===== */
+.banner{
+  position: fixed;
+  top: clamp(14px, 4vw, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: fit-content;
+  max-width: 92vw;
+
+  padding: 14px 36px;
+
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  color: #ffffff;
+
+  font-family: 'Cairo', sans-serif;
+  font-weight: 700;
+
+  font-size: clamp(14px, 3.8vw, 20px); /* ⭐ السر هنا */
+  line-height: 1.2;
+
+  border-radius: 999px;
+
+  white-space: nowrap;              /* ⭐ سطر واحد */
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  box-shadow:
+    0 10px 26px rgba(0,0,0,.35),
+    0 0 22px rgba(180,220,255,.35);
+}
+
+
+
+
+
+/* ===== CARD (نفس إحساس عيد الميلاد) ===== */
+.card{
+  margin-top:140px;
+  width:100%;
+  max-width:820px;
+  border-radius:18px;
+  padding:clamp(18px,4vw,30px);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  background:var(--card-bg);
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.6),
+    0 0 60px rgba(120,190,255,.15);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(8px);
+  position:relative;
+  z-index:5;
+}
+
+/* ===== TEXT ===== */
+.title{
+  font-size:clamp(18px,2.5vw,32px);
+  font-weight:800;
+  text-align:center;
+color:#ffffff;
+
+  margin:0;
+}
+
+.message-box{
+  background:rgba(255,255,255,0.025);
+  padding:clamp(14px,3vw,22px);
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 10px 24px rgba(0,0,0,.35);
+  max-width:760px;
+  text-align:center;
+}
+
+.lineMsg{
+  font-size:clamp(15px,4vw,18px);
+  line-height:1.8;
+  margin:10px 0;
+  opacity:0;
+  transform:translateY(8px);
+  transition:.4s ease;
+}
+.lineMsg.visible{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ===== HEARTS ===== */
+.hearts-layer{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:8;
+}
+.heart{
+  position:absolute;
+  bottom:0;
+  font-size:18px;
+  color:#ce1818;
+  opacity:0;
+  animation:heartUp 3.5s ease-out forwards;
+}
+@keyframes heartUp{
+  0%{transform:translateY(0) scale(.8);opacity:0}
+  15%{opacity:1}
+  100%{transform:translateY(-480px) scale(1.2);opacity:0}
+}
+
+/* ===== SIGN ===== */
+.signature{
+  font-size:13px;
+  color:#ffffff;
+  font-weight:700;
+  text-align:center;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:480px){
+  .card{margin-top:120px}
+  .heart{font-size:15px}
+}
+
+.play-btn{
+  position: fixed;
+  top: clamp(92px, 20vw, 130px);  /* ⭐ نزّلناه شوية */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 11;
+
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+  color: #081f1c;
+
+  font-family: 'Cairo', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+
+.play-btn:hover{
+  transform: translateX(-50%) scale(1.05);
+}
+
+.play-btn.hidden{
+  opacity: 0;
+  pointer-events: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="banner">🌙 رمضان كريم ي قلبي وكل سنة وانتي طيبة 🌙</div>
+<button id="playBtn" class="play-btn">❤️Click Her❤️</button>
+
+<div class="card">
+  <div class="hearts-layer"></div>
+
+  <h1 class="title">أول رمضان واحنا مع بعض 😍</h1>
+
+  <div class="message-box">
+    <p class="lineMsg">كل سنة وانتي طيبة ي قلبي </p>
+    <p class="lineMsg">كل سنة وانتي اجمل بداية وكل سنة وانتي معايا اول رمضان مع بعض وان شاء الله كل السنين اللي جاية 😍😍</p>
+    <p class="lineMsg">مش هوصيكي ع الادعية بقا عايز رمضان الجاي نكون ف بيت واحد 😂❤️❤️</p>
+    <p class="lineMsg">رمضان كريم عليكي ي قلبي وينعاد عليكي بالخير انتي واهلك وحبايبك اللي انا منهم 😂😂❤️</p>
+    <p class="lineMsg">بحبككككككك وربنا يخليكي ليا ❤️❤️</p>
+  </div>
+
+  <div class="signature">CREATED BY MIDO 🤍</div>
+</div>
+
+<!-- ===== AUDIO ===== -->
+<audio id="bgAudio" src="ramadan.mp3" preload="auto" loop muted></audio>
+
+
+
+<script>
+/* ===== AUTOPLAY FIX ===== */
+const audio = document.getElementById("bgAudio");
+const playBtn = document.getElementById("playBtn");
+
+audio.volume = 0.8;
+
+playBtn.addEventListener("click", () => {
+  audio.muted = false;
+  audio.play();
+
+  // ابدأ الكتابة بعد الضغط
+  typeNext();
+
+  playBtn.classList.add("hidden");
+});
+
+
+
+
+
+/* ===== STARS ===== */
+const starsBox=document.querySelector(".stars");
+for(let i=0;i<200;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  const size=Math.random()*2+1;
+  s.style.width=size+"px";
+  s.style.height=size+"px";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  s.style.animationDuration=(2+Math.random()*3)+"s";
+  starsBox.appendChild(s);
+}
+
+/* ===== TYPE EFFECT ===== */
+const lines=[...document.querySelectorAll(".lineMsg")];
+lines.forEach(l=>{
+  l.dataset.text=l.textContent;
+  l.textContent="";
+});
+
+let idx=0;
+function typeNext(){
+  if(idx>=lines.length) return;
+  const line=lines[idx];
+  const text=line.dataset.text;
+  let i=0;
+  line.classList.add("visible");
+  const t=setInterval(()=>{
+    line.textContent+=text[i++];
+    if(i>=text.length){
+      clearInterval(t);
+      idx++;
+      setTimeout(typeNext,700);
+    }
+  },55);
+}
+
+
+/* ===== HEARTS ===== */
+const heartLayer=document.querySelector(".hearts-layer");
+setInterval(()=>{
+  for(let i=0;i<4;i++){
+    const h=document.createElement("div");
+    h.className="heart";
+    h.textContent="❤";
+    h.style.left=Math.random()*110-5+"%";
+    heartLayer.appendChild(h);
+    setTimeout(()=>h.remove(),3500);
+  }
+},700);
+</script>
+
+</body>
+</html>
