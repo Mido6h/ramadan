@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>رمضان كريم</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#02101b;
+  --bg2:#0b2a2f;
+  --accent1:#1e6f5c;
+  --accent2:#2a9d8f;
+  --gold:#e7c873;
+  --soft:#eef6ff;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:'Cairo',sans-serif;
+  background:linear-gradient(180deg,var(--bg1),var(--bg2));
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:var(--soft);
+  overflow:hidden;
+}
+
+/* stars */
+.stars{
+  position:fixed;
+  inset:0;
+}
+.star{
+  position:absolute;
+  background:white;
+  border-radius:50%;
+  opacity:.6;
+  animation:twinkle 3s infinite;
+}
+@keyframes twinkle{
+  0%,100%{opacity:.3}
+  50%{opacity:1}
+}
+
+.card{
+  width:90%;
+  max-width:420px;
+  padding:30px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 30px 60px rgba(0,0,0,.6);
+  text-align:center;
+}
+
+.title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:20px;
+}
+
+input{
+  width:85%;
+  max-width:320px;
+
+  display:block;
+  margin:18px auto;       /* 👈 في النص */
+
+  padding:16px 22px;
+  border-radius:999px;
+
+  border:1px solid rgba(255,255,255,0.15);
+  outline:none;
+
+  font-family:'Cairo', sans-serif;
+  font-size:16px;
+
+  background:rgba(0,0,0,0.35);
+  color:#fff;
+
+  text-align:center;
+  box-shadow:0 6px 18px rgba(0,0,0,.4);
+
+  transition:.25s;
+}
+
+input::placeholder{
+  color:rgb(255, 255, 255);
+}
+
+input:focus{
+  border-color:#2a9d8f;
+  box-shadow:0 0 16px rgba(42,157,143,.7);
+}
+
+
+
+
+button{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:999px;
+  font-family:'Cairo';
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  background:linear-gradient(90deg,var(--accent1),var(--accent2));
+  color:#002c27;
+}
+
+.error{
+  margin-top:10px;
+  color:#f9f5f5;
+  font-size:14px;
+  opacity:0;
+  transition:.3s;
+}
+.error.show{
+  opacity:1;
+}
+.creator{
+  margin-top:14px;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  color:rgb(255, 255, 255);
+  text-align:center;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="card">
+  <div class="title">اكتبي الباسوورد ي قلبي❤️😂</div>
+  <input type="text" id="pass" placeholder="">
+  <button onclick="check()">❤️ افتح ي سمسم ❤️</button>
+  <div id="err" class="error">متحاوليش تدخليه ي قلبي انا هبعتهولك 🤣😘</div>
+  <div class="creator">💕 CREATED BY MIDO 💕</div>
+</div>
+
+<script>
+/* stars */
+const starsBox=document.querySelector(".stars");
+for(let i=0;i<120;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  const size=Math.random()*2+1;
+  s.style.width=size+"px";
+  s.style.height=size+"px";
+  s.style.left=Math.random()*100+"%";
+  s.style.top=Math.random()*100+"%";
+  starsBox.appendChild(s);
+}
+
+
+/* ===== password system (clean & correct) ===== */
+
+// 👇 الباسورد الحقيقي (غيره وقت ما تحب)
+const REAL_PASSWORD = "mido";
+
+function check(){
+  const val = document.getElementById("pass").value.trim();
+
+  if(val === REAL_PASSWORD){
+    localStorage.setItem("ramadanUnlocked", "yes");
+    window.location.href = "index.html";
+  }else{
+    document.getElementById("err").classList.add("show");
+  }
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
